@@ -29,17 +29,17 @@ class EtisalatPlugin : FlutterPlugin, MethodCallHandler {
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
        when (call.method) {
             "authorisation" -> {
-                val arg = call.arguments()
+                val arg:Map<String, Objects> = call.arguments()
                 AuthorizationApiCall().api(arg, result)
 
             }
             "registration" -> {
-                val arg = call.arguments()
+                val arg:Map<String, Objects> = call.arguments()
                 RegistrationApiCall().api(arg, result)
 
             }
             "finalization" -> {
-                val arg = call.arguments()
+                val arg:Map<String, Objects> = call.arguments()
                 FinalizationApiCall().api(arg, result)
 
             }
