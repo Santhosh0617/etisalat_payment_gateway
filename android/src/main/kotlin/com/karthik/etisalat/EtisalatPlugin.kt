@@ -29,19 +29,25 @@ class EtisalatPlugin : FlutterPlugin, MethodCallHandler {
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
        when (call.method) {
             "authorisation" -> {
-                val arg:Map<String, Objects> = call.arguments() as Map<String,Objects>
+                val arg:Map<String, Objects>? = call.arguments()
+            if(arg!=null){
                 AuthorizationApiCall().api(arg, result)
+            }
+            else{
+
+            }
+
 
             }
             "registration" -> {
-                val arg:Map<String, Objects> = call.arguments() as Map<String,Objects>
-                RegistrationApiCall().api(arg, result)
-
+                val arg:Map<String, Objects>? = call.arguments()
+              if(arg!=null){   RegistrationApiCall().api(arg, result)
+              }
             }
             "finalization" -> {
-                val arg:Map<String, Objects> = call.arguments() as Map<String,Objects>
-                FinalizationApiCall().api(arg, result)
-
+                val arg:Map<String, Objects>? = call.arguments()
+           if(arg!=null){      FinalizationApiCall().api(arg, result)
+           }
             }
             else -> {
                 result.notImplemented()
